@@ -39,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //
   List<List<dynamic>> _data = [];
   String? _tsrName;
   String? _fileName;
@@ -46,7 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
   String? checky;
   String selectedItem = 'TSR';
   dynamic currentStep = 0;
-
+  List<List<dynamic>> tsr2 = [];
+  String? tsrRep;
+  //
   // _formState() {
   //   selectedItem = _data[4] as String;
   // }
@@ -60,8 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
       return StepState.editing;
     }
   }
-
-/////////////////////
 
 /////////////////////
   _steps() => [
@@ -113,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ],
-                        )
+                        ),
                 ],
               ),
             ),
@@ -127,28 +128,32 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               DropdownButton(
                 icon: const Icon(Icons.keyboard_arrow_down),
-                items: _data.map((item) {
-                  return DropdownMenuItem(
-                    value: selectedItem,
-                    child: GestureDetector(
-                      child: Text(
-                        item[4].toSet().toString(),
-                        style: const TextStyle(
-                          color: Colors.black,
+                items: _data
+                    .map((item) {
+                      return DropdownMenuItem(
+                        value: tsrRep,
+                        child: GestureDetector(
+                          child: Text(
+                            item[4].toString(),
+                            style: const TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                          onTap: () {
+                            setState(() {
+                              _tsrName = item[4].toString();
+                            });
+                            Navigator.pop(context);
+                          },
                         ),
-                      ),
-                      onTap: () {
-                        setState(() {
-                          _tsrName = item[4].toString();
-                        });
-                      },
-                    ),
-                  );
-                }).toList(),
+                      );
+                    })
+                    .toSet()
+                    .toList(), //.toSet().toList(),
                 onChanged: (String? val) {
-                  setState(() {
-                    selectedItem = _tsrName.toString();
-                  });
+                  // setState(() {
+                  //   selectedItem = _tsrName.toString();
+                  // });
                 },
               ),
               Padding(
@@ -174,9 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Step(
           title: const Text('Check your Warnings & Stats:'),
-          content: Column(
-            children: const [],
-          ),
+          content: const SizedBox(),
           state: _stepState(2),
         )
       ];
@@ -224,11 +227,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 if (_currentStep == 2 && _tsrName != null)
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DataStats()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) =>
+                      //           DataStats(tsrName: _tsrName)),
+                      // );
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DataStats(tsrName1: _tsrName)));
                     },
                     child: const Text('Load Stats'),
                   ),
@@ -281,11 +287,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // if no file is picked
     if (result == null) return;
+    //
     // we will log the name, size and path of the
     // first picked file (if multiple are selected)
-    debugPrint('Niko hapa: ${result.files.first.name}');
+    //
+    debugPrint('Niko hapa: ${result.files.first.name}'); //name of csv
 
-    checky = result.files.first.name;
+    checky = result.files.first.name; //name of csv
     filePath = result.files.first.path!;
 
     final input = File(filePath!).openRead();
@@ -294,12 +302,17 @@ class _MyHomePageState extends State<MyHomePage> {
         .transform(const CsvToListConverter())
         .toList();
 
-    debugPrint('Niko Pale: $fields');
+    debugPrint('Niko Pale: $fields'); //actual data
+    debugPrint('checky $checky'); //name of csv
+
+    tsrRep = fields[4].toSet().toString();
+    debugPrint('please work $tsrRep');
 
     setState(
       () {
         _fileName = checky;
         _data = fields;
+        tsr2 = tsr2; //TODO: fix remove repeated tsr names
       },
     );
   }
