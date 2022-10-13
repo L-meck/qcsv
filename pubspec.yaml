@@ -38,6 +38,7 @@ dependencies:
   path_provider: any
   csv: ^5.0.1
   flutter_phone_direct_caller: any
+  google_fonts: any
 
 dev_dependencies:
   flutter_test:

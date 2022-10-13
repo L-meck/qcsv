@@ -61,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+/////////////////////
+
+/////////////////////
   _steps() => [
         Step(
           title: const Text('Choose CSV File:'),
@@ -129,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: selectedItem,
                     child: GestureDetector(
                       child: Text(
-                        item[4].toString(),
+                        item[4].toSet().toString(),
                         style: const TextStyle(
                           color: Colors.black,
                         ),
@@ -200,10 +203,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                // ElevatedButton(
-                //   onPressed: controls.onStepContinue,
-                //   child: const Text('NEXT'),
-                // ),
                 if (_tsrName == null || _fileName == null)
                   ElevatedButton(
                     onPressed: controls.onStepContinue,

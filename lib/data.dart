@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qcsv/tabs.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show SystemUiOverlayStyle, rootBundle;
+import 'package:csv/csv.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class DataStats extends StatefulWidget {
   const DataStats({Key? key}) : super(key: key);
@@ -9,20 +17,17 @@ class DataStats extends StatefulWidget {
 }
 
 class _DataStatsState extends State<DataStats> {
+  //
   void _searchButtoneTapped() {}
 
-  List tabOptions = const [
-    ["Your Stats", YourStats()],
-    ["Battery Warnings", BatteryWarnings()],
-    ["Cylinder Warnings", CylinderWarnings()],
-  ];
+  int tabs = 3;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: tabOptions.length,
+      length: 3,
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.grey[300],
         body: ListView(
           children: [
             Padding(
@@ -30,10 +35,12 @@ class _DataStatsState extends State<DataStats> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Text(
-                      'Hi, TSR Name',
-                      style: TextStyle(fontSize: 40),
+                      'Hi, \nTSR Name',
+                      style: GoogleFonts.oswald(
+                        fontSize: 50,
+                      ),
                     ),
                   ),
                   GestureDetector(
@@ -43,7 +50,7 @@ class _DataStatsState extends State<DataStats> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey.shade200,
+                        color: Colors.grey.shade300,
                       ),
                       child: const Icon(
                         Icons.search,
@@ -59,39 +66,47 @@ class _DataStatsState extends State<DataStats> {
               child: Column(
                 children: [
                   TabBar(
+                    labelColor: Colors.blue,
                     unselectedLabelStyle: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
-                    unselectedLabelColor: Colors.grey,
+                    unselectedLabelColor: Colors.black,
                     // labelStyle: GoogleFonts.bebasNeue(
                     //   fontSize: 32,
                     // ),
                     //isScrollable: true,
                     tabs: [
                       Tab(
+
                         child: Text(
-                          tabOptions[0][0],
+                          "Your Stats",
+                          style: GoogleFonts.bebasNeue(
+                            fontSize: 14
+                            
+                          ),
                         ),
                       ),
                       Tab(
                         child: Text(
-                          tabOptions[1][0],
+                          "Battery Warnings",
+                          style: GoogleFonts.bebasNeue(fontSize: 14),
                         ),
                       ),
                       Tab(
                         child: Text(
-                          tabOptions[2][0],
+                          "Cylinder Warnings",
+                          style: GoogleFonts.bebasNeue(fontSize: 14),
                         ),
                       ),
                     ],
                   ),
-                  Expanded(
+                  const Expanded(
                     child: TabBarView(
-                      children: [
-                        tabOptions[0][1],
-                        tabOptions[1][1],
-                        tabOptions[2][1],
+                      children:  [
+                       YourStats(),
+                       BatteryWarnings(),
+                       CylinderWarnings(),
                       ],
                     ),
                   )
