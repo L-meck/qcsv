@@ -310,8 +310,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(
       () {
-        _fileName = checky;
-        _data = fields;
+        _fileName = checky; //file name
+        _data = fields;//actual data
         tsr2 = tsr2; //TODO: fix remove repeated tsr names
       },
     );

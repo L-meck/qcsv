@@ -119,7 +119,7 @@ class DataStats extends StatelessWidget {
                         YourStats(),
                         BatteryWarnings(),
                         CylinderWarnings(),
-                        CylinderWarnings(),
+                        NotCookingRepo(),
                       ],
                     ),
                   )
