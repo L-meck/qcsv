@@ -59,7 +59,7 @@ class DataStats extends StatelessWidget {
                         color: Colors.grey.shade300,
                       ),
                       child: const Icon(
-                        Icons.search,
+                        Icons.attribution,
                         size: 36,
                       ),
                     ),
@@ -95,13 +95,13 @@ class DataStats extends StatelessWidget {
                       ),
                       Tab(
                         child: Text(
-                          "Battery Warnings",
+                          "Battery Tasks",
                           style: GoogleFonts.montserrat(fontSize: 14),
                         ),
-                      ),
+                      ), 
                       Tab(
                         child: Text(
-                          "Cylinder Warnings",
+                          "Cylinder Tasks",
                           style: GoogleFonts.montserrat(fontSize: 14),
                         ),
                       ),
