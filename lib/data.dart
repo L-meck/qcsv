@@ -50,7 +50,7 @@ class DataStats extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () => Navigator.pop(context),
                     child: Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -59,7 +59,8 @@ class DataStats extends StatelessWidget {
                         color: Colors.grey.shade300,
                       ),
                       child: const Icon(
-                        Icons.attribution,
+                        Icons.arrow_back_ios_new,
+                        // Icons.bar_chart_outlined,
                         size: 36,
                       ),
                     ),
@@ -98,7 +99,7 @@ class DataStats extends StatelessWidget {
                           "Battery Tasks",
                           style: GoogleFonts.montserrat(fontSize: 14),
                         ),
-                      ), 
+                      ),
                       Tab(
                         child: Text(
                           "Cylinder Tasks",
