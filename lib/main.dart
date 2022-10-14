@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'data.dart';
 
@@ -14,7 +15,8 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  String appName = 'Q:Stats';
+  //
+  String appName = 'QSTATS';
 
   @override
   Widget build(BuildContext context) {
@@ -191,13 +193,40 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
-        title: Text(
-          widget.title,
-          style: const TextStyle(
+        // title: Text(
+        //   widget.title,
+        //   style: const TextStyle(
+        //     color: Colors.black,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
+        title: RichText(
+          text: TextSpan(
+          text: 'Q',
+          style: GoogleFonts.oswald(
+            //cardo(
             color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+            fontSize: 20,
+          ), 
+          children: [
+            TextSpan(
+              text: 'STATS',
+              style: GoogleFonts.oswald( //cardo(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),
+            ),
+            const TextSpan(
+              text: '-beta',
+              // style: GoogleFonts.aclonica( //cardo(
+              //   color: Colors.black,
+              //   fontWeight: FontWeight.bold,
+              //   fontSize: 20
+              // ),
+            ),
+          ],
+        )),
       ),
       body: Stepper(
         controlsBuilder: (BuildContext context, ControlsDetails controls) {
@@ -311,7 +340,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(
       () {
         _fileName = checky; //file name
-        _data = fields;//actual data
+        _data = fields; //actual data
         tsr2 = tsr2; //TODO: fix remove repeated tsr names
       },
     );
