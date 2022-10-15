@@ -16,16 +16,9 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class DataStats extends StatelessWidget {
   String? tsrName1;
+  List<List<dynamic>> data2 = [];
 
-  DataStats({Key? key, required this.tsrName1}) : super(key: key);
-
-//   @override
-//   State<DataStats> createState() => _DataStatsState();
-// }
-
-// class _DataStatsState extends State<DataStats> with TickerProviderStateMixin {
-//   //
-//   void _searchButtoneTapped() {}
+  DataStats({Key? key, required this.tsrName1, required this.data2}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -114,10 +107,10 @@ class DataStats extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Expanded(
+                   Expanded(
                     child: TabBarView(
                       children: [
-                        YourStats(),
+                        YourStats(data3: data2, tsrName2: tsrName1,),
                         BatteryWarnings(),
                         CylinderWarnings(),
                         NotCookingRepo(),

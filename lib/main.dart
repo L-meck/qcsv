@@ -201,21 +201,21 @@ class _MyHomePageState extends State<MyHomePage> {
         //   ),
         // ),
         title: RichText(
-          text: TextSpan(
+            text: TextSpan(
           text: 'Q',
           style: GoogleFonts.oswald(
             //cardo(
             color: Colors.black,
             fontSize: 20,
-          ), 
+          ),
           children: [
             TextSpan(
               text: 'STATS',
-              style: GoogleFonts.oswald( //cardo(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),
+              style: GoogleFonts.oswald(
+                  //cardo(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
             ),
             const TextSpan(
               text: '-beta',
@@ -263,7 +263,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       //           DataStats(tsrName: _tsrName)),
                       // );
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DataStats(tsrName1: _tsrName)));
+                          builder: (context) => DataStats(
+                                tsrName1: _tsrName,
+                                data2: _data,
+                              )));
                     },
                     child: const Text('Load Stats'),
                   ),
