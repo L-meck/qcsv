@@ -24,13 +24,16 @@ class YourStats extends StatelessWidget {
       }
     }
 
-    
     // setState(
     //   () {
     //     result = cars;
     //   },
     // );
   }
+
+  bool valuefirst = true;
+  final bool valuefirst2 = false;
+  Function(bool?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +42,17 @@ class YourStats extends StatelessWidget {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemBuilder: (_, index) {
+          // data3[index][4].removeAt(data3[inrdex][4].toString() == tsrName2);
           return Card(
             child: ListTile(
+              leading: Checkbox(value: valuefirst, onChanged: onChanged),
               title: SelectableText(
                 // stable(),
-                data3[index][4].toString() == tsrName2 || data3[index][4].toString() == 'TSR' ?
-                  data3[index][4].toString() : 'No Data Available',
+                data3[index][4].toString() == tsrName2 ||
+                        data3[index][4].toString() == 'TSR'
+                    ? data3[index][4].toString()
+                    : data3[index][4].removeAt(data3[index][4].toString() != tsrName2),
+
                 //
                 style: TextStyle(
                   color: index == 0 ? Colors.blue : Colors.black,
@@ -52,7 +60,10 @@ class YourStats extends StatelessWidget {
                   fontSize: index == 0 ? 20 : 14,
                 ),
               ),
-              onTap: () => print(tsrName2),
+              onTap: () {
+                print(tsrName2);
+                onChanged;
+              },
             ),
           );
         });
