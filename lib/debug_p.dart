@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 
 // String li2st(){
-//   if( data3[index][4].toString() == tsrName2 || data3[index][4].toString() == 'TSR'){
+//   if( data3[index][4].toString() == tsrName2 || 
+//         data3[index][4].toString() == 'TSR'){
 //                           return
 //                         }
 // }
@@ -17,7 +18,7 @@ import 'package:flutter/material.dart';
 
 // Step 2:REMOVE THE OBJECT AT PARTICULAR INDEX
 
-// LIST_Name.removeAt(index);  ----
+// List_Name.removeAt(index);  ----
 
 // ex: _userTransactions.removeAt(index);
 
@@ -44,7 +45,7 @@ import 'package:flutter/material.dart';
 
 // This can be achieved be adding
 
-//    return GridView.count(
+//   return GridView.count(
 //   shrinkWrap: true,
 //   crossAxisCount: 2,
 //   crossAxisSpacing: 5.0,
@@ -261,3 +262,34 @@ import 'package:flutter/material.dart';
     //   },
     // );
   // }
+
+
+
+
+
+  // ListView.builder(
+  //     itemCount: data3.length,
+  //     scrollDirection: Axis.vertical,
+  //     shrinkWrap: true,
+  //     itemBuilder: (_, index) {
+  //       //
+  //       int hi = data3.indexOf(data3[index]);
+  //       // final yo = data3.removeAt(0);
+  //       _stauff = data3[index][4]; //== tsrName2;
+
+  //       if (_stuff == tsrName2) {
+  //         data3.addAll(_stauff);
+  //       }
+
+  //       return Card(
+  //         child: ListTile(
+  //           leading: Checkbox(value: valuefirst, onChanged: onChanged),
+  //           title: Text(_stauff[index][4].toString()),
+  //           onTap: () {
+  //             // print(chu);
+  //             onChanged;
+  //           },
+  //         ),
+  //       );
+  //     },
+  //   );

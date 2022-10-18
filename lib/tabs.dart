@@ -1,39 +1,57 @@
 import 'package:flutter/material.dart';
 
 class YourStats extends StatelessWidget {
-  
   List<List<dynamic>> data3 = [];
   String? tsrName2;
+
+  static var index;
   YourStats({Key? key, required this.data3, required this.tsrName2})
       : super(key: key);
 
   bool valuefirst = true;
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
-//   final List<WordPair> _suggestions = <WordPair>[];
+  // final List<WordPair> _suggestions = <WordPair>[];
+  List stuff = [];
+  List<List<dynamic>> stauff = [];
 
-  @override
-  Widget build(BuildContext context) {
+//
+  _redone() {
     return ListView.builder(
-      itemCount: data3.length,
+      // itemCount: data3.length,
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
         //
-        return data3[index][4].toString() == tsrName2
-            ? Card(
-                child: ListTile(
-                  leading: Checkbox(value: valuefirst, onChanged: onChanged),
-                  title: Text(data3[index][4].toString()),
-                  onTap: () {
-                    print(tsrName2);
-                    onChanged;
-                  },
-                ),
-              )
-            : Divider();
+        int hi = data3.indexOf(data3[index]);
+        // final yo = data3.removeAt(0);
+        stuff = data3[index][4]; //== tsrName2;
+
+        if (stuff == tsrName2) {
+          data3.addAll(stauff);
+        }
+        return _buildColumn(stauff[index][4]);
       },
     );
+  }
+
+  Widget _buildColumn(pair) {
+    return Card(
+      child: ListTile(
+        leading: Checkbox(value: valuefirst, onChanged: onChanged),
+        title: Text(pair[index][4].toString()),
+        onTap: () {
+          // print(chu);
+          onChanged;
+        },
+      ),
+    );
+  }
+
+//
+  @override
+  Widget build(BuildContext context) {
+    return _redone();
   }
 }
 
