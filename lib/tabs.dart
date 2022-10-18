@@ -1,72 +1,39 @@
 import 'package:flutter/material.dart';
 
 class YourStats extends StatelessWidget {
+  
   List<List<dynamic>> data3 = [];
   String? tsrName2;
   YourStats({Key? key, required this.data3, required this.tsrName2})
       : super(key: key);
 
-  //  check (_, index){
-  //   if(data3[index][4].toString() == tsrName2 || data3[index][4].toString() == 'TSR'){
-  //     String? digi = data3[index][4].removeAt('No Data Available');
-  //   }
-  // }
-
-  // final ch = data3.removeWhere((item) => ['No Data Available'].contains(item));
-  stable() {
-    List data3 = [];
-
-    List result = [];
-
-    for (var car in data3) {
-      if (!['No Data Available'].contains(car)) {
-        result.add(car);
-      }
-    }
-
-    // setState(
-    //   () {
-    //     result = cars;
-    //   },
-    // );
-  }
-
   bool valuefirst = true;
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
+//   final List<WordPair> _suggestions = <WordPair>[];
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: data3.length,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemBuilder: (_, index) {
-          // data3[index][4].removeAt(data3[inrdex][4].toString() == tsrName2);
-          return Card(
-            child: ListTile(
-              leading: Checkbox(value: valuefirst, onChanged: onChanged),
-              title: SelectableText(
-                // stable(),
-                data3[index][4].toString() == tsrName2 ||
-                        data3[index][4].toString() == 'TSR'
-                    ? data3[index][4].toString()
-                    : data3[index][4].removeAt(data3[index][4].toString() != tsrName2),
-
-                //
-                style: TextStyle(
-                  color: index == 0 ? Colors.blue : Colors.black,
-                  fontWeight: index == 0 ? FontWeight.bold : FontWeight.normal,
-                  fontSize: index == 0 ? 20 : 14,
+      itemCount: data3.length,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemBuilder: (_, index) {
+        //
+        return data3[index][4].toString() == tsrName2
+            ? Card(
+                child: ListTile(
+                  leading: Checkbox(value: valuefirst, onChanged: onChanged),
+                  title: Text(data3[index][4].toString()),
+                  onTap: () {
+                    print(tsrName2);
+                    onChanged;
+                  },
                 ),
-              ),
-              onTap: () {
-                print(tsrName2);
-                onChanged;
-              },
-            ),
-          );
-        });
+              )
+            : Divider();
+      },
+    );
   }
 }
 
@@ -96,7 +63,9 @@ class NotCookingRepo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [],
+      children: [
+        //
+      ],
     );
   }
 }
