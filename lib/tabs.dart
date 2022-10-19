@@ -26,7 +26,7 @@ class YourStats extends StatelessWidget {
       itemBuilder: (_, index) {
         //
         int hi = data3.indexOf(data3[index]);
-        var yo = data3.removeAt(0);
+        var yo = data3.removeAt(2);
         // stuff = data3[index][4].toString(); //== tsrName2;
         
         if (hi ==  4) {
