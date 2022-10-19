@@ -27,7 +27,7 @@ class YourStats extends StatelessWidget {
         // final yo = data3.removeAt(0);
         stuff = data3[index][4]; //== tsrName2;
 
-        if (stuff == tsrName2) {
+        if (stuff != tsrName2) {
           data3.addAll(stauff);
         }
         return _buildColumn(stauff[index][4]);
