@@ -12,6 +12,8 @@ class YourStats extends StatelessWidget {
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
   // final List<WordPair> _suggestions = <WordPair>[];
+  
+  // *******************************
   List stuff = [];
   List<List<dynamic>> stauff = [];
 
@@ -24,13 +26,15 @@ class YourStats extends StatelessWidget {
       itemBuilder: (_, index) {
         //
         int hi = data3.indexOf(data3[index]);
-        // final yo = data3.removeAt(0);
-        stuff = data3[index][4]; //== tsrName2;
-
-        if (stuff != tsrName2) {
-          data3.addAll(stauff);
+        var yo = data3.removeAt(0);
+        // stuff = data3[index][4].toString(); //== tsrName2;
+        
+        if (hi ==  4) {
+//
+          // stauff.addAll(stauff.toList());
+//
         }
-        return _buildColumn(stauff[index][4]);
+        return _buildColumn(yo); //TODO:
       },
     );
   }
@@ -39,7 +43,7 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(pair[index][4].toString()),
+        title: Text(pair.toString()),  //TODO:
         onTap: () {
           // print(chu);
           onChanged;
@@ -61,7 +65,9 @@ class BatteryWarnings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [],
+      children: [
+        //
+      ],
     );
   }
 }
