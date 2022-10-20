@@ -293,3 +293,27 @@ import 'package:flutter/material.dart';
   //       );
   //     },
   //   );
+
+
+
+
+
+//   Void main() {
+//   List list = [{"fid":1,"name":"z"},
+//                {"fid":10,"name":"b"},
+//                {"fid":5,"name":"c"},
+//                {"fid":4,"name":"d"}];
+  
+//   list.sort((a,b)=> a["fid"].compareTo(b["fid"]));
+  
+//   int fidIndex=4;
+  
+//   int indexToRemove = list.indexWhere((element) => element["fid"]==
+//                                       fidIndex);
+
+//   Map<String,dynamic> removedItem = list.removeAt(indexToRemove);
+
+//   list.insert(0,removedItem); 
+
+//   print(list);
+// }

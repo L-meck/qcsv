@@ -12,7 +12,7 @@ class YourStats extends StatelessWidget {
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
   // final List<WordPair> _suggestions = <WordPair>[];
-  
+
   // *******************************
   List stuff = [];
   List<List<dynamic>> stauff = [];
@@ -28,11 +28,9 @@ class YourStats extends StatelessWidget {
         int hi = data3.indexOf(data3[index]);
         var yo = data3.removeAt(2);
         // stuff = data3[index][4].toString(); //== tsrName2;
-        
-        if (hi ==  4) {
-//
-          // stauff.addAll(stauff.toList());
-//
+
+        if (hi == 4) {
+          stauff.addAll(stauff.toList());
         }
         return _buildColumn(yo); //TODO:
       },
@@ -43,7 +41,7 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(pair.toString()),  //TODO:
+        title: Text(pair.toString()), //TODO:
         onTap: () {
           // print(chu);
           onChanged;
