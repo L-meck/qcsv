@@ -24,15 +24,37 @@ class YourStats extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
-        //
-        int hi = data3.indexOf(data3[index]);
-        var yo = data3.removeAt(2);
-        // stuff = data3[index][4].toString(); //== tsrName2;
+        // //
+        // int hi = data3.indexOf(data3[index]);
+        // var yo = data3.removeAt(2);
+        // // stuff = data3[index][4].toString(); //== tsrName2;
 
-        if (hi == 4) {
-          stauff.addAll(stauff.toList());
-        }
-        return _buildColumn(yo); //TODO:
+        // if (hi == 4) {
+        //   stauff.addAll(stauff.toList());
+        // }
+        // return _buildColumn(yo); //TODO:
+
+        // List list = [
+        //   {"fid": 1, "name": "z"},
+        //   {"fid": 10, "name": "b"},
+        //   {"fid": 5, "name": "c"},
+        //   {"fid": 4, "name": "d"}
+        // ];
+        List bust = data3;
+
+        bust.sort((a, b) => a[tsrName2].compareTo(b[tsrName2]));
+
+        String? fidIndex2 = tsrName2;
+        int fidIndex = 2;
+
+        int indexToRemove =
+            bust.indexWhere((element) => element[tsrName2] == fidIndex);
+
+        Map<String, dynamic> removedItem = bust.removeAt(indexToRemove);
+
+        bust.insert(0, removedItem);
+
+        return _buildColumn(bust);
       },
     );
   }
