@@ -334,11 +334,11 @@ class _MyHomePageState extends State<MyHomePage> {
         .transform(const CsvToListConverter())
         .toList();
 
-    debugPrint('Niko Pale: $fields'); //actual data
-    debugPrint('checky $checky'); //name of csv
+    // debugPrint('Niko Pale: $fields'); //actual data
+    // debugPrint('checky $checky'); //name of csv
 
     tsrRep = fields[4].toSet().toString();
-    debugPrint('please work $tsrRep');
+    // debugPrint('please work $tsrRep');
 
     setState(
       () {
