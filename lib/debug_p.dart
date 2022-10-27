@@ -317,3 +317,74 @@ import 'package:flutter/material.dart';
 
 //   print(list);
 // }
+
+
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp( MaterialApp(
+//        home: Home()
+//   ));
+// }
+
+// class Home extends  StatefulWidget {
+//   @override
+//   State<Home> createState() => _HomeState();
+// }
+
+// class _HomeState extends State<Home> {
+
+//   @override
+//   Widget build(BuildContext context) {
+
+//     List<Student> students = [
+//         Student(name: "John Cena", rollno: 3, dob: "2003-10-23"),
+//         Student(name: "Krishna Chaudhary", rollno: 4, dob: "2005-01-13"),
+//         Student(name: "Jack Sparrow", rollno: 6, dob: "1993-03-15"),
+//         Student(name: "Harry Potter", rollno: 2, dob: "2011-09-05")
+//     ];
+
+//     students.sort((a, b){ 
+//         return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+//         //softing on alphabetical order (Ascending order by Name String)
+//     });
+
+//     return Scaffold(
+//          appBar: AppBar(
+//             title: Text("Sorting List of Object"),
+//             backgroundColor: Colors.redAccent,
+//          ),
+//           body: Container(
+//              alignment: Alignment.center,
+//              padding: EdgeInsets.all(20),
+//              child: Column(
+//                children:students.map((studentone){
+//                   return Container(
+//                     child: Card(
+//                        child:ListTile(
+//                           leading: Text(studentone.rollno.toString(), 
+//                                     style: TextStyle(fontSize: 25),),
+//                           title: Text(studentone.name),
+//                           subtitle: Text(studentone.dob),
+//                        )
+//                     )
+//                   );
+//                }).toList(),
+//              ),
+//           )
+//       );
+//   }
+// }
+
+// class Student{
+//    String name, dob;
+//    int rollno;
+
+//    Student({ 
+//        required this.name,
+//        required this.rollno,
+//        required this.dob
+//    });
+   
+// }

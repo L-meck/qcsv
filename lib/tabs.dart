@@ -11,7 +11,7 @@ class YourStats extends StatelessWidget {
   bool valuefirst = true;
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
-  // final List<WordPair> _suggestions = <WordPair>[];
+  List<String> _suggestions = <String>[];
 
   // *******************************
   List stuff = [];
@@ -25,36 +25,19 @@ class YourStats extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (_, index) {
         // //
-        // int hi = data3.indexOf(data3[index]);
+        int hi = data3.indexOf(data3[index]); //index of the element
         // var yo = data3.removeAt(2);
-        // // stuff = data3[index][4].toString(); //== tsrName2;
+        stauff = data3; //== tsrName2;
 
-        // if (hi == 4) {
-        //   stauff.addAll(stauff.toList());
-        // }
-        // return _buildColumn(yo); //TODO:
 
-        // List list = [
-        //   {"fid": 1, "name": "z"},
-        //   {"fid": 10, "name": "b"},
-        //   {"fid": 5, "name": "c"},
-        //   {"fid": 4, "name": "d"}
-        // ];
-        List bust = data3;
 
-        bust.sort((a, b) => a[tsrName2].compareTo(b[tsrName2]));
+        // stauff.sort((a, b) {
+        //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        // });
 
-        String? fidIndex2 = tsrName2;
-        int fidIndex = 2;
+        print('stauff before >> :$stauff  \n \n \n');
 
-        int indexToRemove =
-            bust.indexWhere((element) => element[tsrName2] == fidIndex);
-
-        Map<String, dynamic> removedItem = bust.removeAt(indexToRemove);
-
-        bust.insert(0, removedItem);
-
-        return _buildColumn(bust);
+        return _buildColumn(stauff); //stauff[index][4].toString());
       },
     );
   }
@@ -63,9 +46,11 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(pair.toString()), //TODO:
+        title: Text('$pair'), //TODO:
         onTap: () {
           // print(chu);
+          print('\n pair \n ^^ \n $pair');
+          print('\n tsrname2: $tsrName2');
           onChanged;
         },
       ),
