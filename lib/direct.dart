@@ -15,7 +15,7 @@ class _FuxState extends State<Fux> {
     //
     List<List<dynamic>> data = [];
     loadAsset() async {
-      final myData = await rootBundle.loadString("assets/Book1.csv");
+      final myData = await rootBundle.loadString("assets/s.csv");
       List<List<dynamic>> csvTable = const CsvToListConverter().convert(myData);
 
       data = csvTable;
