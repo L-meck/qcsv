@@ -389,7 +389,7 @@ import 'package:flutter/material.dart';
    
 // }
 
-
+//////////////////////////////
 // Future<List<List<dynamic>>> loadingCsvData(String path) async {
 //   final csvFile = new File(path).openRead();
 //   return await csvFile
@@ -402,3 +402,71 @@ import 'package:flutter/material.dart';
 
 
 
+// Put *.csv file into asset directory, install CSV plugin and run pub get. 
+//Than follow the given code. it will print data. you need to call loadAsset() 
+//function to see the result.
+
+
+// import 'package:csv/csv.dart';
+// import 'package:flutter/services.dart' show rootBundle;
+
+//  List<List<dynamic>> data = [];
+//   loadAsset() async {
+//     final myData = await rootBundle.loadString("assets/Book1.csv");
+//     List<List<dynamic>> csvTable = CsvToListConverter().convert(myData);
+
+//     data = csvTable;
+//     print(data);
+// to show data on Flutter UI add given code to body. it will create a table 
+//to show data from *.csv file.
+
+
+// SingleChildScrollView(
+//               child: Table(
+//                 border: TableBorder.all(width: 1.0),
+//                 children: data.map((item) {
+//                   return TableRow(
+//                       children: item.map((row) {
+//                     return Container(
+//                       child: Padding(
+//                         padding: const EdgeInsets.all(8.0),
+//                         child: Text(
+//                           row.toString(),
+//                         ),
+//                       ),
+//                     );
+//                   }).toList());
+//                 }).toList(),
+//               ),
+//             ),
+
+
+
+
+// const showLineNumbers = true;
+// var lineNumber = 1;
+// var stream = File('quotes.txt').openRead();
+
+// stream.transform(utf8.decoder)
+//       .transform(const LineSplitter())
+//       .forEach((line) {
+//         if (showLineNumbers) {
+//           stdout.write('${lineNumber++} ');
+//         }
+//         stdout.writeln(line);
+//       });
+
+
+
+// import 'dart:async';
+// import 'dart:io';
+// import 'dart:convert';
+
+// main() {
+//   var path = ...;
+//   new File(path)
+//     .openRead()
+//     .transform(utf8.decoder)
+//     .transform(new LineSplitter())
+//     .forEach((l) => print('line: $l'));
+// }

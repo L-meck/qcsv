@@ -47,10 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
   String? _fileName;
   String? filePath;
   String? checky;
-  String selectedItem = 'TSR';
+  // String selectedItem = 'TSR';
   dynamic currentStep = 0;
   List<List<dynamic>> tsr2 = [];
   String? tsrRep;
+
+  String? linl;
   //
   // _formState() {
   //   selectedItem = _data[4] as String;
@@ -323,7 +325,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // we will log the name, size and path of the
     // first picked file (if multiple are selected)
     //
-    debugPrint('Niko hapa: ${result.files.first.name}'); //name of csv
+    // debugPrint('Niko hapa: ${result.files.first.name}'); //name of csv
 
     checky = result.files.first.name; //name of csv
     filePath = result.files.first.path!;
@@ -334,6 +336,20 @@ class _MyHomePageState extends State<MyHomePage> {
         .transform(const CsvToListConverter())
         .toList();
 
+/////
+    var lineNumber = 1;
+    final lineC = File(filePath!).openRead();
+    final lineCheck = await lineC
+        .transform(utf8.decoder)
+        .transform(const LineSplitter())
+        .forEach((line) {
+      if (line == _tsrName) {
+        stdout.write('${lineNumber++} ');
+      }
+      stdout.writeln(line);
+    });
+
+////
     // debugPrint('Niko Pale: $fields'); //actual data
     // debugPrint('checky $checky'); //name of csv
 
@@ -342,6 +358,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(
       () {
+        linl = lineCheck;
         _fileName = checky; //file name
         _data = fields; //actual data
         tsr2 = tsr2; //TODO: fix remove repeated tsr names
