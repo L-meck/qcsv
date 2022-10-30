@@ -470,3 +470,23 @@ import 'package:flutter/material.dart';
 //     .transform(new LineSplitter())
 //     .forEach((l) => print('line: $l'));
 // }
+
+
+// This should read the file in chunks:
+
+// import 'dart:async';
+// import 'dart:io';
+// import 'dart:convert';
+
+// main() {
+//   var path = ...;
+//   new File(path)
+//     .openRead()
+//     .map(utf8.decode)
+//     .transform(new LineSplitter())
+//     .forEach((l) => print('line: $l'));
+// }
+// There isn't much documentation about this yet. Perhaps file a bug asking for more docs.
+
+
+
