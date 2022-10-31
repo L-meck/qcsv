@@ -16,8 +16,9 @@ class YourStats extends StatelessWidget {
   List<String> _suggestions = <String>[];
 
   // *******************************
-  List stuff = [];
+  // List<String> stuff = [];
   List<List<dynamic>> stauff = [];
+  List<List<dynamic>> tsrLine = [];
 
 //
   _redone() {
@@ -26,18 +27,25 @@ class YourStats extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
-
         // //
         int hi = data3.indexOf(data3[index]); //index of the element
         // var yo = data3.removeAt(2);
-        stauff = data3; //== tsrName2;
+        stauff = data3;
 
-        for (var line in stauff) {
-          if (line != tsrName2 || tsrName2 == 'TSR') {
-            print('\n sorted: \n$line');
-          }else {
-            print('doesn\'t work');
-          }
+        var o = stauff.map((e) {
+          return print('e: - ${e[4]}');
+        });
+        // .toSet()
+        // .toList();
+
+        print('nem: -- $tsrName2');
+        print('tl: -- $o');
+        print('j:-- ${stauff[index][4].toString()}');
+
+        // stuff = stauff[index][4];
+
+        if (o == tsrName2 || o == 'TSR') {
+          print('chikko: -- $tsrName2');
         }
 
         // stauff.sort((a, b) {
@@ -47,7 +55,6 @@ class YourStats extends StatelessWidget {
         // print('stauff before >> :$stauff  \n \n \n');
 
         return _buildColumn(hi, stauff); //stauff[index][4].toString());
-       
       },
     );
   }
