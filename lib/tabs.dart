@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class YourStats extends StatelessWidget {
@@ -20,38 +22,46 @@ class YourStats extends StatelessWidget {
 //
   _redone() {
     return ListView.builder(
-      // itemCount: data3.length,
+      itemCount: data3.length,
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
+
         // //
         int hi = data3.indexOf(data3[index]); //index of the element
         // var yo = data3.removeAt(2);
         stauff = data3; //== tsrName2;
 
-
+        for (var line in stauff) {
+          if (line != tsrName2 || tsrName2 == 'TSR') {
+            print('\n sorted: \n$line');
+          }else {
+            print('doesn\'t work');
+          }
+        }
 
         // stauff.sort((a, b) {
         //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
         // });
 
-        print('stauff before >> :$stauff  \n \n \n');
+        // print('stauff before >> :$stauff  \n \n \n');
 
-        return _buildColumn(stauff); //stauff[index][4].toString());
+        return _buildColumn(hi, stauff); //stauff[index][4].toString());
+       
       },
     );
   }
 
-  Widget _buildColumn(pair) {
+  Widget _buildColumn(ind, dat) {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text('$pair'), //TODO:
+        title: Text(ind.toString()), //TODO:
+        subtitle: Text(dat.toString()),
         onTap: () {
-          // print(chu);
-          print('\n pair \n ^^ \n $pair');
-          print('\n tsrname2: $tsrName2');
-          onChanged;
+          // print('\n pair \n ^^ \n $pair');
+          // print('\n tsrname2: $tsrName2');
+          // onChanged;
         },
       ),
     );

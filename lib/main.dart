@@ -336,20 +336,6 @@ class _MyHomePageState extends State<MyHomePage> {
         .transform(const CsvToListConverter())
         .toList();
 
-/////
-    var lineNumber = 1;
-    final lineC = File(filePath!).openRead();
-    final lineCheck = await lineC
-        .transform(utf8.decoder)
-        .transform(const LineSplitter())
-        .forEach((line) {
-      if (line == _tsrName) {
-        stdout.write('${lineNumber++} ');
-      }
-      stdout.writeln(line);
-    });
-
-////
     // debugPrint('Niko Pale: $fields'); //actual data
     // debugPrint('checky $checky'); //name of csv
 
@@ -358,7 +344,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(
       () {
-        linl = lineCheck;
         _fileName = checky; //file name
         _data = fields; //actual data
         tsr2 = tsr2; //TODO: fix remove repeated tsr names
