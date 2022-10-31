@@ -39,7 +39,7 @@ class YourStats extends StatelessWidget {
         // .toList();
 
         var kokoto = stauff[index][4].toString();
-        dynamic kokot = stauff[index][4];
+        final kokot = stauff[index][4];
         // print('nem: -- $tsrName2');
         // print('tl: -- $o');
         // print('j:-- ${stauff[index][4].toString()}');
@@ -48,8 +48,12 @@ class YourStats extends StatelessWidget {
         // print('kokoto=:'' $kokoto');
         if (kokoto == tsrName2 || kokoto == 'TSR') {
           print('chikko: -- $kokoto');
+          kokot.map((value) {
+            if (value.contains(tsrName2)) {
+              return Text('d: ---- $value');
+            }
+          }).toList();
         }
-        print(kokot.where((item) => item.contains(tsrName2)));
         // stauff.sort((a, b) {
         //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
         // });
@@ -65,7 +69,7 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(ind == tsrName2 || ind == 'TSR' ? ind : 'No Data'), //TODO:
+        title: Text(ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
         subtitle: Text(dat.toString()),
         onTap: () {
           // print('\n pair \n ^^ \n $pair');
