@@ -32,20 +32,22 @@ class YourStats extends StatelessWidget {
         // var yo = data3.removeAt(2);
         stauff = data3;
 
-        var o = stauff.map((e) {
-          return print('e: - ${e[4]}');
-        });
+        // var o = stauff.map((e) {
+        //   return print('e: - ${e[4]}');
+        // });
         // .toSet()
         // .toList();
 
-        print('nem: -- $tsrName2');
-        print('tl: -- $o');
+        var kokoto = stauff[index][4].toString();
+
+        // print('nem: -- $tsrName2');
+        // print('tl: -- $o');
         print('j:-- ${stauff[index][4].toString()}');
 
         // stuff = stauff[index][4];
-
-        if (o == tsrName2 || o == 'TSR') {
-          print('chikko: -- $tsrName2');
+        // print('kokoto=:'' $kokoto');
+        if (kokoto == tsrName2 || kokoto == 'TSR') {
+          print('chikko: -- $kokoto');
         }
 
         // stauff.sort((a, b) {
@@ -54,7 +56,7 @@ class YourStats extends StatelessWidget {
 
         // print('stauff before >> :$stauff  \n \n \n');
 
-        return _buildColumn(hi, stauff); //stauff[index][4].toString());
+        return _buildColumn(kokoto, hi); //stauff[index][4].toString());
       },
     );
   }
