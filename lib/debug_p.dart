@@ -518,3 +518,32 @@ import 'package:flutter/material.dart';
 //               ),
 //             ),
 
+
+
+// List<String> myList = ['US', 'SG', 'US'];
+// print(myList.where((item) => item.contains("US")));
+// You can also display it directly inside a Text widget 
+//in the following way -
+
+// Text(
+//    myList.where((item) => item.contains("US")).join(" "),
+
+//    //The join function joins the elements of the Iterable into a 
+//single string with the separator provided as an argument.
+
+// ),
+
+
+// To display each of the word separately as a list you can display them 
+//inside a Column in the following way -
+
+// Column(
+//   children: myList.map((value) {
+//     if(value.contains("US")){
+//       return Text(value,);
+//     } else {
+//       return Container();
+//       //Return an empty Container for non-matching case
+//     }
+//   }).toList(),
+// )
