@@ -17,7 +17,7 @@ class YourStats extends StatelessWidget {
 
   // *******************************
   // List<String> stuff = [];
-  
+
   List<List<dynamic>> stauff = [];
   List<List<dynamic>> tsrLine = [];
 
@@ -42,7 +42,7 @@ class YourStats extends StatelessWidget {
         var kokoto = stauff[index][4].toString();
         final kokot = stauff[index][4];
         // print('nem: -- $tsrName2');
-        // print('tl: -- $o');
+        // print('tl: -- $o'); 
         // print('j:-- ${stauff[index][4].toString()}');
 
         // stuff = stauff[index][4];
