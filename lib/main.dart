@@ -204,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
         title: RichText(
             text: TextSpan(
-          text: 'Q',
+          text: 'TEAM',
           style: GoogleFonts.oswald(
             //cardo(
             color: Colors.black,
