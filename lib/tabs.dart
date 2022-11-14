@@ -33,6 +33,10 @@ class YourStats extends StatelessWidget {
         // var yo = data3.removeAt(2);
         stauff = data3;
 
+        // int g = data3.lastIndexOf(data3, data3[index][4]);
+
+        // print("no: of Customers: $g");
+
         // var o = stauff.map((e) {
         //   return print('e: - ${e[4]}');
         // });
@@ -42,26 +46,31 @@ class YourStats extends StatelessWidget {
         var kokoto = stauff[index][4].toString();
         final kokot = stauff[index][4];
         // print('nem: -- $tsrName2');
-        // print('tl: -- $o'); 
+        // print('tl: -- $o');
         // print('j:-- ${stauff[index][4].toString()}');
+        print(kokoto);
 
+        tsrLine = kokoto as List<List>;
+        var yellow = data3.indexOf(tsrLine);
+        print(yellow.toString());
         // stuff = stauff[index][4];
-        // print('kokoto=:'' $kokoto');
-        if (kokoto == tsrName2 || kokoto == 'TSR') {
-          print('chikko: -- $kokoto');
-          kokot.map((value) {
-            if (value.contains(tsrName2)) {
-              return Text('d: ---- $value');
-            }
-          }).toList();
-        }
+        // print('kokoto=:'' $kokot');
+
+        // if (kokoto == tsrName2 || kokoto == 'TSR') {
+        //   print('chikko: -- $kokoto');
+        //   kokot.map((value) {
+        //     if (value.contains(tsrName2)) {
+        //       return Text('d: ---- $value');
+        //     }
+        //   }).toList();
+        // }
         // stauff.sort((a, b) {
         //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
         // });
 
         // print('stauff before >> :$stauff  \n \n \n');
 
-        return _buildColumn(kokoto, hi); //stauff[index][4].toString());
+        return _buildColumn(data3, hi); //stauff[index][4].toString());
       },
     );
   }
@@ -70,8 +79,8 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
-        subtitle: Text(dat.toString()),
+        title: Text(''), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
+        subtitle: Text('dat.toString()'),
         onTap: () {
           // print('\n pair \n ^^ \n $pair');
           // print('\n tsrname2: $tsrName2');
