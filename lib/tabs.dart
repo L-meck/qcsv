@@ -43,16 +43,16 @@ class YourStats extends StatelessWidget {
         // .toSet()
         // .toList();
 
-        var kokoto = stauff[index][4].toString();
+        var kokoto = stauff[index][4]; //.toString();
         final kokot = stauff[index][4];
         // print('nem: -- $tsrName2');
         // print('tl: -- $o');
         // print('j:-- ${stauff[index][4].toString()}');
         print(kokoto);
 
-        tsrLine = kokoto as List<List>;
-        var yellow = data3.indexOf(tsrLine);
-        print(yellow.toString());
+        // tsrLine = kokoto as List<List>;
+        // var yellow = data3.indexOf(tsrLine);
+        // print(yellow.toString());
         // stuff = stauff[index][4];
         // print('kokoto=:'' $kokot');
 

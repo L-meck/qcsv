@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             const Padding(
                               padding: EdgeInsets.only(left: 20.0, right: 8.0),
                               child: Icon(
-                                Icons.tips_and_updates_sharp,
+                                Icons.data_array,
                                 color: Colors.white,
                               ),
                             ),
