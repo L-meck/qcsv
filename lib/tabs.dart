@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class YourStats extends StatelessWidget {
@@ -20,6 +18,7 @@ class YourStats extends StatelessWidget {
 
   List<List<dynamic>> stauff = [];
   List<List<dynamic>> tsrLine = [];
+   var lastChance = <String>[];
 
 //
   _redone() {
@@ -43,12 +42,13 @@ class YourStats extends StatelessWidget {
         // .toSet()
         // .toList();
 
-        var kokoto = stauff[index][4]; //.toString();
-        final kokot = stauff[index][4];
+        var kokoto = stauff[index][4];
+        final kokot = stauff[index][5];
         // print('nem: -- $tsrName2');
         // print('tl: -- $o');
         // print('j:-- ${stauff[index][4].toString()}');
         print(kokoto);
+        print(hi);
 
         // tsrLine = kokoto as List<List>;
         // var yellow = data3.indexOf(tsrLine);
@@ -69,8 +69,11 @@ class YourStats extends StatelessWidget {
         // });
 
         // print('stauff before >> :$stauff  \n \n \n');
+        var lastChance = kokoto;
+        var kok = lastChance.asMap();
+        kok.keys.toList();
 
-        return _buildColumn(data3, hi); //stauff[index][4].toString());
+        return _buildColumn(kok, hi);
       },
     );
   }
@@ -79,8 +82,9 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(''), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
-        subtitle: Text('dat.toString()'),
+        title:
+            Text('$ind'), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
+        subtitle: Text('$dat'),
         onTap: () {
           // print('\n pair \n ^^ \n $pair');
           // print('\n tsrname2: $tsrName2');
@@ -151,3 +155,59 @@ class _TestState extends State<Test> {
     );
   }
 }
+
+// class TableLayout extends StatefulWidget {
+//   @override
+//   _TableLayoutState createState() => _TableLayoutState();
+// }
+
+// class _TableLayoutState extends State<TableLayout> {
+//   List<List<dynamic>> data = [];
+//   loadAsset() async {
+//     final myData = await rootBundle.loadString("assets/ford.csv");
+//     List<List<dynamic>> csvTable = const CsvToListConverter().convert(myData);
+//     print(csvTable);
+//     data = csvTable;
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+//       // floatingActionButton: FloatingActionButton(
+//       //     child: Icon(Icons.refresh),
+//       //     onPressed: () async {
+//       //       await loadAsset();
+//       //       //print(data);
+//       //     }),
+//       appBar: AppBar(
+//         title: Text("Table Layout and CSV"),
+//       ),
+//       body: SingleChildScrollView(
+//         child: Table(
+//           columnWidths: const {
+//             0: FixedColumnWidth(100.0),
+//             1: FixedColumnWidth(200.0),
+//           },
+//           border: TableBorder.all(width: 1.0),
+//           children: data.map((item) {
+//             return TableRow(
+//                 children: item.map((row) {
+//               return Container(
+//                 color:
+//                     row.toString().contains("NA") ? Colors.red : Colors.green,
+//                 child: Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: Text(
+//                     row.toString(),
+//                     style: const TextStyle(fontSize: 20.0),
+//                   ),
+//                 ),
+//               );
+//             }).toList());
+//           }).toList(),
+//         ),
+//       ),
+//     );
+//   }
+// }

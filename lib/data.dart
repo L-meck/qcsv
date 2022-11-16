@@ -4,23 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:qcsv/tabs.dart';
 
-import 'dart:convert';
-import 'dart:io';
-import 'package:file_picker/file_picker.dart';
-
-import 'package:flutter/services.dart' show SystemUiOverlayStyle, rootBundle;
-
-import 'package:csv/csv.dart';
-
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-
-
-
 class DataStats extends StatelessWidget {
   String? tsrName1;
   List<List<dynamic>> data2 = [];
 
-  DataStats({Key? key, required this.tsrName1, required this.data2}) : super(key: key);
+  DataStats({Key? key, required this.tsrName1, required this.data2})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,10 +98,13 @@ class DataStats extends StatelessWidget {
                       ),
                     ],
                   ),
-                   Expanded(
+                  Expanded(
                     child: TabBarView(
                       children: [
-                        YourStats(data3: data2, tsrName2: tsrName1,),
+                        YourStats(
+                          data3: data2,
+                          tsrName2: tsrName1,
+                        ),
                         BatteryWarnings(),
                         CylinderWarnings(),
                         NotCookingRepo(),

@@ -191,6 +191,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: FloatingActionButton(
+      //     child: Icon(Icons.refresh),
+      //     onPressed: () async {
+      //       _pickFile();
+      //       //print(data);
+      //     }),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
@@ -212,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           children: [
             TextSpan(
-              text: 'STATS',
+              text: 'METRICS',
               style: GoogleFonts.oswald(
                   //cardo(
                   color: Colors.black,
@@ -230,84 +237,110 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         )),
       ),
-      body: Stepper(
-        controlsBuilder: (BuildContext context, ControlsDetails controls) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                if (_tsrName == null || _fileName == null)
-                  ElevatedButton(
-                    onPressed: controls.onStepContinue,
-                    child: _tsrName == null &&
-                            _fileName == null &&
-                            _currentStep == 2 &&
-                            _currentStep == 1
-                        ? const Text('BACK')
-                        : const Text('NEXT'),
-                  ),
-                //
-                if (_currentStep != 2 && _fileName != null && _tsrName != null)
-                  ElevatedButton(
-                    onPressed: controls.onStepContinue,
-                    child: const Text('NEXT..'),
-                  ),
-                //
-
-                if (_currentStep == 2 && _tsrName != null)
-                  ElevatedButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) =>
-                      //           DataStats(tsrName: _tsrName)),
-                      // );
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DataStats(
-                                tsrName1: _tsrName,
-                                data2: _data,
-                              )));
-                    },
-                    child: const Text('Load Stats'),
-                  ),
-                if (_currentStep == 1 || _fileName != null && _tsrName != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: TextButton(
-                      onPressed: controls.onStepCancel,
-                      child: const Text(
-                        'BACK',
-                        style: TextStyle(color: Colors.grey),
+      body: Column(
+        children: [
+          Stepper(
+            controlsBuilder: (BuildContext context, ControlsDetails controls) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    if (_tsrName == null || _fileName == null)
+                      ElevatedButton(
+                        onPressed: controls.onStepContinue,
+                        child: _tsrName == null &&
+                                _fileName == null &&
+                                _currentStep == 2 &&
+                                _currentStep == 1
+                            ? const Text('BACK')
+                            : const Text('NEXT'),
                       ),
+                    //
+                    if (_currentStep != 2 &&
+                        _fileName != null &&
+                        _tsrName != null)
+                      ElevatedButton(
+                        onPressed: controls.onStepContinue,
+                        child: const Text('NEXT..'),
+                      ),
+                    //
+
+                    if (_currentStep == 2 && _tsrName != null)
+                      ElevatedButton(
+                        onPressed: () {
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) =>
+                          //           DataStats(tsrName: _tsrName)),
+                          // );
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => DataStats(
+                                    tsrName1: _tsrName,
+                                    data2: _data,
+                                  )));
+                        },
+                        child: const Text('Load Stats'),
+                      ),
+                    if (_currentStep == 1 ||
+                        _fileName != null && _tsrName != null)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextButton(
+                          onPressed: controls.onStepCancel,
+                          child: const Text(
+                            'BACK',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            },
+            onStepTapped: (step) => setState(() => _currentStep = step),
+            onStepContinue: () {
+              setState(() {
+                if (_currentStep < _steps().length - 1) {
+                  _currentStep += 1;
+                } else {
+                  _currentStep = 0;
+                }
+              });
+            },
+            onStepCancel: () {
+              setState(() {
+                if (_currentStep > 0) {
+                  _currentStep -= 1;
+                } else {
+                  _currentStep = 0;
+                }
+              });
+            },
+            currentStep: _currentStep,
+            steps: _steps(),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: RichText(
+              text: const TextSpan(
+                text: 'Dev Version: ',
+                style: TextStyle(color: Colors.black),
+                children: [
+                  TextSpan(
+                    text: '1.0.0',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      color: Colors.red,
                     ),
                   ),
-              ],
+                ],
+              ),
             ),
-          );
-        },
-        onStepTapped: (step) => setState(() => _currentStep = step),
-        onStepContinue: () {
-          setState(() {
-            if (_currentStep < _steps().length - 1) {
-              _currentStep += 1;
-            } else {
-              _currentStep = 0;
-            }
-          });
-        },
-        onStepCancel: () {
-          setState(() {
-            if (_currentStep > 0) {
-              _currentStep -= 1;
-            } else {
-              _currentStep = 0;
-            }
-          });
-        },
-        currentStep: _currentStep,
-        steps: _steps(),
+          )
+        ],
       ),
     );
   }
