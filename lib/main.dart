@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
 /////////////////////
   _steps() => [
         Step(
-          title: const Text('Choose CSV File:'),
+          title: const Text('Choose Excel File:'),
           content: GestureDetector(
             onTap: () => _pickFile(),
             child: Container(
