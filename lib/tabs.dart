@@ -23,7 +23,7 @@ class YourStats extends StatelessWidget {
 //
   _redone() {
     return ListView.builder(
-      itemCount: data3.length,//must be added to avoid runtime/segfault
+      itemCount: data3.length, //must be added to avoid runtime/segfault
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -80,20 +80,26 @@ class YourStats extends StatelessWidget {
             //       "three: ${(data3.elementAt(i).elementAt(2).toString())}");
           }
         }
-        var kok = data3.map((data) => [
-              data[0].toString(),
-              data[1].toString(),
-              data[2].toString(),
-              data[3].toString()
-            ]);
-        // .toList();
+        var kok = data3
+            .map((data) => [
+                  data[0].toString(),
+                  data[1].toString(),
+                  data[2].toString(),
+                  data[3].toString(),
+                  data[4].toString(),
+                  data[5].toString(), 
+                ])
+            .toSet()
+            .toList();
+
+        var account = kok[index][1];
 
         var lastChance = kokoto;
         // var kok = lastChance.asMap();
         // kok.keys.toList();
         // var kok = 'Chicken';
 
-        return _buildColumn(kok, hi);
+        return _buildColumn(account, hi);
       },
     );
   }
