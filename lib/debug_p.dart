@@ -386,6 +386,8 @@
    
 // }
 
+import 'dart:convert';
+
 //////////////////////////////
 // Future<List<List<dynamic>>> loadingCsvData(String path) async {
 //   final csvFile = new File(path).openRead();
@@ -544,3 +546,62 @@
 //     }
 //   }).toList(),
 // )
+
+
+
+// void importCSV(){
+//  //Pick file
+//  FilePickerResult csvFile = 
+//  await FilePicker.platform.pickFiles(allowedExtensions: ['csv'],           
+//  type: FileType.custom,allowMultiple: false);
+
+// if(csvFile!=null){
+//  //decode bytes back to utf8
+//  final bytes = utf8.decode(csvFile.files[0].bytes);   
+//  //from the csv plugin                                                 
+//  //List<List<dynamic>> rowsAsListOfValues  = 
+//      const  CsvToListConverter().convert(bytes);
+// }
+// }
+
+
+// {
+
+// for (int i = 0; i < data3.length; i++) {
+//   for (int j = 0; j < data3.elementAt(i).length; j++) {
+//     debugPrint("one: ${(data3.elementAt(i).elementAt(0))}");
+
+//     debugPrint("two: ${(data3.elementAt(i).elementAt(1).toString())}");
+
+//     debugPrint(
+//         "three: ${(data3.elementAt(i).elementAt(2).toString())}");
+//   }
+// }
+// output:
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+// I/flutter (29192): one: 46705
+// I/flutter (29192): two: peter mungai
+// I/flutter (29192): three: Gachie vision
+
+
+// }

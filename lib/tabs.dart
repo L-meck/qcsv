@@ -18,12 +18,12 @@ class YourStats extends StatelessWidget {
 
   List<List<dynamic>> stauff = [];
   List<List<dynamic>> tsrLine = [];
-   var lastChance = <String>[];
+  var lastChance = <String>[];
 
 //
   _redone() {
     return ListView.builder(
-      itemCount: data3.length,
+      itemCount: data3.length,//must be added to avoid runtime/segfault
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
@@ -69,9 +69,29 @@ class YourStats extends StatelessWidget {
         // });
 
         // print('stauff before >> :$stauff  \n \n \n');
+
+        for (int i = 0; i < data3.length; i++) {
+          for (int j = 0; j < data3.elementAt(i).length; j++) {
+            //   debugPrint("one: ${(data3.elementAt(i).elementAt(0))}");
+
+            //   debugPrint("two: ${(data3.elementAt(i).elementAt(1).toString())}");
+
+            //   debugPrint(
+            //       "three: ${(data3.elementAt(i).elementAt(2).toString())}");
+          }
+        }
+        var kok = data3.map((data) => [
+              data[0].toString(),
+              data[1].toString(),
+              data[2].toString(),
+              data[3].toString()
+            ]);
+        // .toList();
+
         var lastChance = kokoto;
-        var kok = lastChance.asMap();
-        kok.keys.toList();
+        // var kok = lastChance.asMap();
+        // kok.keys.toList();
+        // var kok = 'Chicken';
 
         return _buildColumn(kok, hi);
       },
@@ -82,8 +102,8 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title:
-            Text('$ind'), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
+        title: Text(ind
+            .toString()), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
         subtitle: Text('$dat'),
         onTap: () {
           // print('\n pair \n ^^ \n $pair');
@@ -107,7 +127,7 @@ class BatteryWarnings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
+      children: const [
         //
       ],
     );
