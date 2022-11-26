@@ -30,7 +30,6 @@ class YourStats extends StatelessWidget {
         // //
         int hi = data3.indexOf(data3[index]); //index of the element
         // var yo = data3.removeAt(2);
-        stauff = data3;
 
         // int g = data3.lastIndexOf(data3, data3[index][4]);
 
@@ -41,20 +40,6 @@ class YourStats extends StatelessWidget {
         // });
         // .toSet()
         // .toList();
-
-        var kokoto = stauff[index][4];
-        final kokot = stauff[index][5];
-        // print('nem: -- $tsrName2');
-        // print('tl: -- $o');
-        // print('j:-- ${stauff[index][4].toString()}');
-        print(kokoto);
-        print(hi);
-
-        // tsrLine = kokoto as List<List>;
-        // var yellow = data3.indexOf(tsrLine);
-        // print(yellow.toString());
-        // stuff = stauff[index][4];
-        // print('kokoto=:'' $kokot');
 
         // if (kokoto == tsrName2 || kokoto == 'TSR') {
         //   print('chikko: -- $kokoto');
@@ -87,19 +72,38 @@ class YourStats extends StatelessWidget {
                   data[2].toString(),
                   data[3].toString(),
                   data[4].toString(),
-                  data[5].toString(), 
+                  data[5].toString(),
                 ])
-            .toSet()
+            // .toSet()
             .toList();
 
-        var account = kok[index][1];
+        var account = kok[index][0];
+        var customer_name = kok[index][1];
+        var street = kok[index][2];
+        var phone = kok[index][3];
+        var tsr_name = kok[index][4];
+        var task = kok[index][5];
 
-        var lastChance = kokoto;
-        // var kok = lastChance.asMap();
-        // kok.keys.toList();
-        // var kok = 'Chicken';
+        var tezt = tsr_name;
 
-        return _buildColumn(account, hi);
+        // var separated = data3.map((value) {
+        //   if (value.contains(tsrName2)) {
+        //     return print('d: ---- ${value[2].toString()}');
+        //   }
+        // }).toList();
+
+        if (tsr_name == tsrName2 || tsr_name == 'TSR') {
+          data3.map((value) {
+            if (value.contains(tsrName2)) {
+              print('d: ---- ${value[4].toString()}');
+              print('d: ---- ${value[2].toString()}');
+            }
+          }).toList();
+        }
+
+        
+
+        return _buildColumn(tsr_name, hi);
       },
     );
   }
@@ -108,12 +112,9 @@ class YourStats extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(ind
-            .toString()), //ind == tsrName2 || ind == 'TSR' ? ind : ''), //TODO:
+        title: Text(ind),
         subtitle: Text('$dat'),
         onTap: () {
-          // print('\n pair \n ^^ \n $pair');
-          // print('\n tsrname2: $tsrName2');
           // onChanged;
         },
       ),
