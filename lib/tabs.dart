@@ -11,14 +11,10 @@ class YourStats extends StatelessWidget {
   bool valuefirst = true;
   final bool valuefirst2 = false;
   Function(bool?)? onChanged;
-  List<String> _suggestions = <String>[];
-
-  // *******************************
-  // List<String> stuff = [];
 
   List<List<dynamic>> stauff = [];
   List<List<dynamic>> tsrLine = [];
-  var lastChance = <String>[];
+  List<String> _restaurantList = [];
 
 //
   _redone() {
@@ -27,44 +23,7 @@ class YourStats extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemBuilder: (_, index) {
-        // //
-        int hi = data3.indexOf(data3[index]); //index of the element
-        // var yo = data3.removeAt(2);
-
-        // int g = data3.lastIndexOf(data3, data3[index][4]);
-
-        // print("no: of Customers: $g");
-
-        // var o = stauff.map((e) {
-        //   return print('e: - ${e[4]}');
-        // });
-        // .toSet()
-        // .toList();
-
-        // if (kokoto == tsrName2 || kokoto == 'TSR') {
-        //   print('chikko: -- $kokoto');
-        //   kokot.map((value) {
-        //     if (value.contains(tsrName2)) {
-        //       return Text('d: ---- $value');
-        //     }
-        //   }).toList();
-        // }
-        // stauff.sort((a, b) {
-        //   return a.name.toLowerCase().compareTo(b.name.toLowerCase());
-        // });
-
-        // print('stauff before >> :$stauff  \n \n \n');
-
-        for (int i = 0; i < data3.length; i++) {
-          for (int j = 0; j < data3.elementAt(i).length; j++) {
-            //   debugPrint("one: ${(data3.elementAt(i).elementAt(0))}");
-
-            //   debugPrint("two: ${(data3.elementAt(i).elementAt(1).toString())}");
-
-            //   debugPrint(
-            //       "three: ${(data3.elementAt(i).elementAt(2).toString())}");
-          }
-        }
+        int hi = data3.indexOf(data3[index]);
         var kok = data3
             .map((data) => [
                   data[0].toString(),
@@ -92,31 +51,52 @@ class YourStats extends StatelessWidget {
         //   }
         // }).toList();
 
-        if (tsr_name == tsrName2 || tsr_name == 'TSR') {
-          data3.map((value) {
-            if (value.contains(tsrName2)) {
-              print('d: ---- ${value[4].toString()}');
-              print('d: ---- ${value[2].toString()}');
-            }
-          }).toList();
-        }
+        // if (tsr_name == tsrName2 || tsr_name == 'TSR') {
+        //   data3.map(
+        //     (value) {
+        //       if (value.contains(tsrName2)) {
+        //         // print('d: ---- ${value[4].toString()}');
+        //         // print('d: ---- ${value[2].toString()}');
+        //       }
+        //     },
+        //   ).toList();
+        // }
 
-        
 
-        return _buildColumn(tsr_name, hi);
+      _restaurantList = kok[index][4] as List<String>;
+
+
+
+        return _buildColumn(_restaurantList as String, hi, data3);
       },
     );
   }
 
-  Widget _buildColumn(ind, dat) {
-    return Card(
-      child: ListTile(
-        leading: Checkbox(value: valuefirst, onChanged: onChanged),
-        title: Text(ind),
-        subtitle: Text('$dat'),
-        onTap: () {
-          // onChanged;
-        },
+  Widget _buildColumn(ind, dat, all) {
+    return SingleChildScrollView(
+      child: Table(
+        // columnWidths: const {
+        //   0: FixedColumnWidth(100.0),
+        //   1: FixedColumnWidth(200.0),
+        // },
+        border: TableBorder.all(width: 1.0),
+        children: ind.map((item) {
+          return TableRow(
+              children: item.map((row) {
+            return Container(
+              color: row.toString().contains(tsrName2.toString())
+                  ? Colors.red
+                  : Colors.green,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  row.toString(),
+                  style: const TextStyle(fontSize: 20.0),
+                ),
+              ),
+            );
+          }).toList());
+        }).toList(),
       ),
     );
   }
@@ -238,3 +218,25 @@ class _TestState extends State<Test> {
 //     );
 //   }
 // }
+
+
+  // Widget _buildColumn(ind, dat, all) {
+  //   return Card(
+  //     child: ListTile(
+  //       leading: Checkbox(value: valuefirst, onChanged: onChanged),
+  //       title: ind == tsrName2 || ind == 'TSR'
+  //           // ? all.map((val) {
+  //           //     if (val.contains(tsrName2)) {
+  //           //       ind.toString();
+  //           //     }
+  //           //   }).toList()
+  //           ? Text(ind.toString())
+  //           : Text(''),
+  //       // Text(ind),
+  //       subtitle: Text('$dat'),
+  //       onTap: () {
+  //         // onChanged;
+  //       },
+  //     ),
+  //   );
+  // }
