@@ -25,7 +25,7 @@
 // EXAMPLE 2:
 
 
-// A bit late to the party but what I've found is that if you want 
+//A bit late to the party but what I've found is that if you want 
 //to manipulate a ListView or GridView it is paramount that you assign 
 //a Key to each child Widget of the List/GridView
 

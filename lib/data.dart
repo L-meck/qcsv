@@ -105,9 +105,9 @@ class DataStats extends StatelessWidget {
                           data3: data2,
                           tsrName2: tsrName1,
                         ),
-                        BatteryWarnings(),
-                        CylinderWarnings(),
-                        NotCookingRepo(),
+                        const BatteryWarnings(),
+                        const CylinderWarnings(),
+                        const NotCookingRepo(),
                       ],
                     ),
                   )
